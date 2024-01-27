@@ -1,0 +1,92 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar') %>
+
+
+<div id="carouselExampleInterval" class="carousel slide w-100" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="https://image.tmdb.org/t/p/original<%= popular.data.results[0].backdrop_path %>" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h4><%= popular.data.results[0].title %></h4>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="https://image.tmdb.org/t/p/original<%= popular.data.results[1].backdrop_path %>" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h4><%= popular.data.results[1].title %></h4>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="https://image.tmdb.org/t/p/original<%= popular.data.results[2].backdrop_path %>" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h4><%= popular.data.results[2].title %></h4>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="https://image.tmdb.org/t/p/original<%= popular.data.results[3].backdrop_path %>" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h4><%= popular.data.results[3].title %></h4>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="https://image.tmdb.org/t/p/original<%= popular.data.results[4].backdrop_path %>" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h4><%= popular.data.results[4].title %></h4>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="https://image.tmdb.org/t/p/original<%= popular.data.results[5].backdrop_path %>" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h4><%= popular.data.results[5].title %></h4>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="https://image.tmdb.org/t/p/original<%= popular.data.results[6].backdrop_path %>" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h4><%= popular.data.results[6].title %></h4>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="https://image.tmdb.org/t/p/original<%= popular.data.results[7].backdrop_path %>" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h4><%= popular.data.results[7].title %></h4>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="https://image.tmdb.org/t/p/original<%= popular.data.results[8].backdrop_path %>" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h4><%= popular.data.results[8].title %></h4>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+    <div class="container text-center mt-3">
+        <div class="row">
+          <% for(let i = 0; i < length_t ; i++){ %>
+            <div class="card shadow-lg text-bg-dark mb-2 mx-1 text-center p-0" style="max-width: 540px;">
+               <div class="row g-0">
+                 <div class="col-md-4">
+                   <img src="https://image.tmdb.org/t/p/original<%=trending.data.results[i].poster_path%>" class="img-fluid rounded-start" alt="...">
+                 </div>
+                 <div class="col-md-8">
+                   <div class="card-body">
+                     <h5 class="card-title fs-2"><%= trending.data.results[i].title %></h5>
+                     <p class="card-text">Date released: <%= trending.data.results[i].release_date %></p>
+                     <p class="card-text">Ratings: <%= trending.data.results[i].vote_average %></p>
+                   </div>
+                 </div>
+                  <a href="/show/<%= trending.data.results[i].id %>" class="btn btn-success">Details</a>
+               </div>
+             </div>
+       <% } %>
+        </div>
+      </div>

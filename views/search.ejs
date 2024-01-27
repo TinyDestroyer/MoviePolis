@@ -1,0 +1,47 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar') %>
+<div class="container text-center mt-3">
+  <div class="row">
+    <% for(let i = 0; i < length ; i++){ %>
+      <div class="card shadow-lg text-bg-dark mb-2 mx-1 text-center p-0" style="max-width: 540px;">
+         <div class="row g-0">
+           <div class="col-md-4">
+             <img src="https://image.tmdb.org/t/p/original<%=movie.data.results[i].poster_path%>" class="img-fluid rounded-start" alt="...">
+           </div>
+           <div class="col-md-8">
+             <div class="card-body">
+               <h5 class="card-title fs-2"><%= movie.data.results[i].title %></h5>
+               <p class="card-text">Date released: <%= movie.data.results[i].release_date %></p>
+               <p class="card-text">Ratings: <%= movie.data.results[i].vote_average %></p>
+             </div>
+           </div>
+            <a href="/show/<%= movie.data.results[i].id %>" class="btn btn-success">Details</a>
+         </div>
+       </div>
+ <% } %>
+  </div>
+</div>
+  <hr>
+  <h3 class="text-center">Recommended:</h3>
+  <div class="container text-center mt-3">
+    <div class="row">
+      <% for(let i = 0; i < length_r ; i++){ %>
+        <div class="card shadow-lg text-bg-dark mb-2 mx-1 text-center p-0" style="max-width: 540px;">
+           <div class="row g-0">
+             <div class="col-md-4">
+               <img src="https://image.tmdb.org/t/p/original<%=recommend.data.results[i].poster_path%>" class="img-fluid rounded-start" alt="...">
+             </div>
+             <div class="col-md-8">
+               <div class="card-body">
+                 <h5 class="card-title fs-2"><%= recommend.data.results[i].title %></h5>
+                 <p class="card-text">Date released: <%= recommend.data.results[i].release_date %></p>
+                 <p class="card-text">Ratings: <%= recommend.data.results[i].vote_average %></p>
+               </div>
+             </div>
+              <a href="/show/<%= recommend.data.results[i].id %>" class="btn btn-success">Details</a>
+           </div>
+         </div>
+   <% } %>
+    </div>
+  </div>
+<%- include('partials/footer') %>
